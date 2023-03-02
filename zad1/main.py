@@ -63,5 +63,49 @@ dataChoice = np.random.choice([True, False], size=diabetes.shape, p=[0.1, 0.9])
 diabetes[dataChoice] = "?"
 print(diabetes)
 
+print("4b\n")
+
+with open('diabetes.txt', 'r') as file:
+    values = np.loadtxt(file)
 
 
+min_value = np.min(values)
+max_value = np.max(values)
+scaled_values = (values - min_value) / (max_value - min_value)
+
+a1 = -1
+b1 = 1
+normalized_values1 = a1 + (b1 - a1) * scaled_values
+
+print(normalized_values1)
+
+print("\n--------------------------------------\n")
+
+a2 = 0
+b2 = 1
+normalized_values2 = a2 + (b2 - a2) * scaled_values
+
+print(normalized_values2)
+
+print("\n--------------------------------------\n")
+
+a3 = -10
+b3 = 10
+normalized_values3 = a3 + (b3 - a3) * scaled_values
+
+print(normalized_values3)
+
+print("\n--------------------------------------\n")
+
+print("4c\n")
+
+with open('diabetes.txt', 'r') as file:
+    values = np.loadtxt(file)
+
+i = 2
+ai = values[:, i]
+ai_mean = np.mean(ai)
+ai_std = np.std(ai)
+ai_standardized = (ai - ai_mean) / ai_std
+
+print(ai_standardized)
