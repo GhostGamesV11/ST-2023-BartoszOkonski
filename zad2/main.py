@@ -28,15 +28,15 @@ def get_file_info(file_name):
 
 def display_file(file_name, num_lines):
     classes, info , number_lines= get_file_info(file_name)
-    response = "Liczba klas decyzyjnych: {}\n".format(len(classes))
+    response = "Number of decision classes: {}\n".format(len(classes))
     num_lines = int(num_lines)
     if num_lines <= 0:
         return "Invalid input: number smaller or equel to zero  ."
     elif number_lines > number_lines:
         return "Invalid input: number of lines is greater than file size."
-    line = "Chciana linia: {}\n".format(read_line(file_name,num_lines))
+    line = "Wanted line: {}\n".format(read_line(file_name,num_lines))
     for class_name, class_size in classes.items():
-        response += "Wielkość klasy {}: {}\n".format(class_name, class_size)
+        response += "Scale of class {}: {}\n".format(class_name, class_size)
     return f"{info}\n{response}\n{line}"
 #
 
@@ -48,4 +48,3 @@ output_text = gr.outputs.Textbox(label="File preview:")
 iface = gr.Interface(fn=display_file, inputs=[file_name_input, num_lines_input], outputs=output_text, title="File Preview Bot",
                      description="Enter a file name and the number of lines to display to see a preview of the file.")
 iface.launch()
-
