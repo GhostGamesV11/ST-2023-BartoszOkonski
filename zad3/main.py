@@ -212,6 +212,75 @@ for j in range(60000):
 print("Wynik po nauczeniu:")
 print(layer_2)
 
+# ZADANIE 5
+# Definicja funkcji aktywacji sigmoid
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
+# Definicja pochodnej funkcji aktywacji sigmoid
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+
+# Definicja klasy sieci neuronowej
+class NeuralNetwork:
+
+    def __init__(self, input_size, hidden_size, output_size):
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+
+        # Inicjalizacja wag dla warstwy ukrytej i wyjściowej
+        self.weights_hidden = np.random.randn(self.input_size, self.hidden_size)
+        self.weights_output = np.random.randn(self.hidden_size, self.output_size)
+        # self.weights_hidden = [[0.1,-0.2,0.1],[0.2,0.2,0],[-0.4,0.5,0.3]]
+        # self.weights_output = [[0.1,-0.4],[0.2,-0.1],[-0.2,0.6]]
+
+        print(self.weights_hidden)
+        print(self.weights_output)
+
+    def forward(self, X):
+        # Propagacja do przodu
+        self.hidden_layer = sigmoid(np.dot(X, self.weights_hidden))
+        self.output_layer = sigmoid(np.dot(self.hidden_layer, self.weights_output))
+        return self.output_layer
+
+    def backward(self, X, y, learning_rate):
+        # Propagacja wsteczna
+        error = y - self.output_layer
+        d_output = error * sigmoid_derivative(self.output_layer)
+
+        error_hidden = np.dot(d_output, self.weights_output.T)
+        d_hidden = error_hidden * sigmoid_derivative(self.hidden_layer)
+
+        # Aktualizacja wag
+        self.weights_output += learning_rate * np.dot(self.hidden_layer.T, d_output)
+        self.weights_hidden += learning_rate * np.dot(X.T, d_hidden)
+
+    def train(self, X, y, epochs, learning_rate):
+        for i in range(epochs):
+            output = self.forward(X)
+            self.backward(X, y, learning_rate)
+
+    def predict(self, X):
+        return np.round(self.forward(X))
+
+# Utworzenie instancji klasy sieci neuronowej
+nn = NeuralNetwork(input_size=2, hidden_size=3, output_size=1)
+
+# Dane uczące i docelowe wyjście
+X = np.array([[0,0],[0,1],[1,0],[1,1]])
+y = np.array([[0],[1],[1],[0]])
+
+# Uczenie sieci neuronowej
+nn.train(X, y, epochs=15000, learning_rate=0.1)
+
+# Testowanie sieci neuronowej
+test_data = np.array([[0.6,0.1],[0.2,0.3]])
+predictions = nn.predict(test_data)
+print(predictions)
+
 
 
 # 1.3 Zadania do zrobienia
