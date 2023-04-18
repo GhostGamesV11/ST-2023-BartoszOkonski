@@ -1,0 +1,15 @@
+ZAD 1
+Dla Fig. 1 istnieje jeszcze jeden redukt decyzyjny inny niż {a, d}. Znajdź ten
+redukt decyzyjny.
+
+Reduktor decyzyjny {b,d}
+
+System decyzyjny
+
+     b c d | dec
+o1   2 1 0 | 0
+o2   2 2 1 | 1
+o3   0 2 1 | 2
+o4   2 1 1 | 1
+
+
