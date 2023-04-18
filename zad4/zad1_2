@@ -12,4 +12,8 @@ o2   2 2 1 | 1
 o3   0 2 1 | 2
 o4   2 1 1 | 1
 
+Reguły dla danego reduktora
 
+b = 0 ^ d = 0 => dec = 0
+b = 2 ^ d = 1 => dec = 1
+b = 0 ^ d = 1 => dec = 2
