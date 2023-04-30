@@ -2,18 +2,22 @@ ZAD 1
 Dla Fig. 1 istnieje jeszcze jeden redukt decyzyjny inny niż {a, d}. Znajdź ten
 redukt decyzyjny.
 
-Reduktor decyzyjny {b,d}
+Reduktor decyzyjny {b,c,d}
 
 System decyzyjny
 
      b c d | dec
 o1   2 1 0 | 0
-o2   2 2 1 | 1
+o2   2 2 1 | 0
 o3   0 2 1 | 2
 o4   2 1 1 | 1
 
+ZAD 2
+Zapisz wszystkie reguły wygenerowane z otrzymanego reduktu decyzyjnego.
+
 Reguły dla danego reduktora
 
-b = 0 ^ d = 0 => dec = 0
-b = 2 ^ d = 1 => dec = 1
-b = 0 ^ d = 1 => dec = 2
+b = 2 ^ c = 1 ^ d = 0 => dec = 0
+b = 2 ^ c = 2 ^ d = 1 => dec = 0
+b = 0 ^ c = 2 ^ d = 1 => dec = 1
+b = 2 ^ c = 1 ^ d = 1 => dec = 2
