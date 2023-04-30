@@ -21,3 +21,41 @@ b = 2 ^ c = 1 ^ d = 0 => dec = 0
 b = 2 ^ c = 2 ^ d = 1 => dec = 0
 b = 0 ^ c = 2 ^ d = 1 => dec = 1
 b = 2 ^ c = 1 ^ d = 1 => dec = 2
+
+
+ZAD 3
+
+Rozważ Fig. 2. (i) Znajdź opis dla X2 w odniesieniu do A.
+
+Opis dla X2 w oparciu o zbiór atrybutów A = {a1, a2, a3} będzie wyglądał następująco:
+
+Dolna Aproksymacja: X2A = ∪{[u]A : [u]A ⊆ X2} = {o5, o6, o8}. Można też napisać, X2A = {u ∈ U : [u]A ⊆ X2} = {o5, o6, o8}.
+
+Górna Aproksymacja: X2A = ∪{[u]A : [u]A∩X2 6= φ} = {o5, o6, o8}.
+
+Możemy teraz opisać X2 jako: (X2A, X2A) gdzie opis dla pewnych przykładów (związane z X2A): (a1 = więcej niż średnia ∧ a2 = daleki ∧ a3 = silny) ⇒ dec = nie 
+i opis dla możliwych przykładów (związane z X2A \ X2A) to: 
+(a1 = więcej niż średnia ∧ a2 = daleki ∧ a3 = lekki) ⇒ dec = nie.
+
+
+(ii) Znajdź podobnie opis dla X1 i X2 w odniesieniu do B = {a1, a2}.
+
+Oto dolna i górna aproksymacja dla zbioru X1 w oparciu o zbiór B:
+
+Dolna aproksymacja: X1B = ∪{[u]B : [u]B ⊆ X1} = {o1, o2, o3, o7, o9}. Można też napisać, X1B = {u ∈ U : [u]B ⊆ X1} = {o1, o2, o3, o7}.
+
+Górna aproksymacja: X1B = ∪{[u]B : [u]B∩X1 6= φ} = {o1, o2, o3, o7, o6, o8, o9}.
+
+Opis dla X1 w oparciu o zbiór B to: (X1B, X1B) gdzie opis dla pewnych przykładów (związane z X1B): (a1 = wysoka ∧ a2 = bliski) ⇒ dec = tak 
+i opis dla możliwych przykładów (związane z X1B \ X1B) to: 
+(a1 = większej niż średnia ∧ a2 = daleki) ⇒ dec = tak.
+
+A teraz dolna i górna aproksymacja dla zbioru X2 w oparciu o zbiór B:
+
+Dolna aproksymacja: X2B = ∪{[u]B : [u]B ⊆ X2} = {o5, o6, o8}. Można też napisać, X2B = {u ∈ U : [u]B ⊆ X2} = {o5, o6, o8}.
+
+Górna aproksymacja: X2B = ∪{[u]B : [u]B∩X2 6= φ} = {o5, o6, o8}.
+
+Opis dla X2 w oparciu o zbiór B to: (X2B, X2B) gdzie opis dla pewnych przykładów (związane z X2B): (a1 = więcej niż średnia ∧ a2 = daleki) ⇒ dec = nie. 
+Nie ma potrzeby dodawania opisu dla przypadków niewystępujących w X2B, ponieważ górna aproksymacja jest równa dolnej aproksymacji.
+
